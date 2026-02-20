@@ -1,0 +1,227 @@
+/* ======================
+   MOBILE-FIRST BASE (< 481px)
+   ====================== */
+
+.linktree {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding: 0;
+}
+
+.card {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding: 2rem 1.25rem;
+  padding-top: calc(2rem + env(safe-area-inset-top, 0px));
+  padding-bottom: calc(2rem + env(safe-area-inset-bottom, 0px));
+  overflow: hidden;
+  z-index: 0;
+}
+
+/* Blurred background image */
+.card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url('/profile.jpg') center center / cover no-repeat;
+  filter: blur(1px) brightness(1.05);
+  transform: scale(1.1);
+  z-index: -2;
+}
+
+/* Semi-transparent overlay for readability */
+.card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(245, 240, 235, 0.65);
+  z-index: -1;
+}
+
+/* Profile header */
+.profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Avatar */
+.avatar-wrapper {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  padding: 3px;
+  background: linear-gradient(135deg, #c4a882, #8b7355);
+  margin-bottom: 1rem;
+  flex-shrink: 0;
+}
+
+.avatar {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center 20%;
+  display: block;
+}
+
+/* Name & Bio */
+.name {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  text-align: center;
+  margin-bottom: 0.4rem;
+}
+
+.bio {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 300;
+  color: #5c5550;
+  text-align: center;
+  line-height: 1.5;
+  padding: 0 1rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Link Buttons */
+.links {
+  width: 100%;
+  max-width: 340px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.link-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  width: 100%;
+  padding: 0.875rem 1rem;
+  min-height: 48px;
+  background: #ffffff;
+  color: #1a1a1a;
+  text-decoration: none;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 400;
+  border-radius: 50px;
+  transition: background 0.2s ease, color 0.2s ease;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.link-button:active {
+  background: #1a1a1a;
+  color: #ffffff;
+}
+
+.link-icon {
+  display: flex;
+  font-size: 1.15rem;
+  flex-shrink: 0;
+}
+
+/* Social Icons */
+.socials {
+  display: flex;
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+}
+
+.social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  color: #5c5550;
+  font-size: 1.75rem;
+  border-radius: 50%;
+  transition: color 0.2s ease;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.social-icon:active {
+  color: #1a1a1a;
+  background: rgba(0, 0, 0, 0.05);
+}
+
+/* ======================
+   TABLET & UP (>= 481px)
+   ====================== */
+@media (min-width: 481px) {
+  .linktree {
+    align-items: center;
+    padding: 2rem 1rem;
+  }
+
+  .card {
+    max-width: 420px;
+    min-height: auto;
+    border-radius: 24px;
+    padding: 3rem 2rem 2.5rem;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+  }
+
+  .avatar-wrapper {
+    width: 120px;
+    height: 120px;
+    padding: 4px;
+    margin-bottom: 1.25rem;
+  }
+
+  .name {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .bio {
+    font-size: 0.85rem;
+    margin-bottom: 2rem;
+    padding: 0;
+    max-width: 300px;
+  }
+
+  .links {
+    max-width: 100%;
+    gap: 0.875rem;
+  }
+
+  .link-button {
+    padding: 1rem;
+    font-size: 0.95rem;
+  }
+
+  .link-button:hover {
+    background: #1a1a1a;
+    color: #ffffff;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  }
+
+  .socials {
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .social-icon:hover {
+    color: #1a1a1a;
+    background: rgba(0, 0, 0, 0.05);
+    transform: translateY(-1px);
+  }
+}
